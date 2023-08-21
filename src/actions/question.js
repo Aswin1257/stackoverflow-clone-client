@@ -50,16 +50,11 @@ export const postAnswer = (answerData) => async (dispatch) => {
       answerBody,
       userAnswered
     );
-    const User = JSON.parse(localStorage.getItem('Profile'))
-    const loggedInUser=User?.result
-    loggedInUser.numberOfanswer += 1
-    if (loggedInUser.numberOfanswer % 4 === 0) {
-      loggedInUser.points += 10
-    }
-    const updatedUser={...User,result:loggedInUser}
-    localStorage.setItem('Profile', JSON.stringify(updatedUser))
+    
     dispatch({ type: "POST_ANSWER", payload: data });
     dispatch(fetchAllQuestions());
+    const { data:users } = await api.getAllUsers();
+    dispatch({ type: "FETCH_USERS", payload:users});
   } catch (error) {
     console.log(error);
   }
