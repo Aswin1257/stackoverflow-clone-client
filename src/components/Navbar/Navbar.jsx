@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import decode from "jwt-decode";
 
 import logo from "../../assets/logo.png";
+import icon from  "../../assets/icon.png"
 import search from "../../assets/search-solid.svg";
 import Avatar from "../../components/Avatar/Avatar";
 import "./Navbar.css";
@@ -52,7 +53,8 @@ const Navbar = ({ handleSlideIn }) => {
         </button>
         <div className="navbar-1">
           <Link to="/" className="nav-item nav-logo">
-            <img src={logo} alt="logo" />
+            <img id="logo" src={logo} alt="logo" />
+            <img id="icon" src={icon} alt="logo" />
           </Link>
           <Link to="/" className="nav-item nav-btn res-nav">
             About

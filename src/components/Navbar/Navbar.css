@@ -112,6 +112,9 @@
   overflow-x: auto;
   
 }
+#logo{
+  display: none;
+}
 @media screen and (max-width: 1120px) {
   .navbar .navbar-1 form {
     display: none;
@@ -127,5 +130,13 @@
 @media screen and (max-width: 620px) {
   .navbar .navbar-1 .res-nav {
     display: none;
+  }
+}
+@media screen and (min-width:428px) {
+  #icon{
+    display: none;
+  }
+  #logo{
+    display: block;
   }
 }
