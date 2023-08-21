@@ -14,6 +14,7 @@ import {
   deleteQuestion,
   voteQuestion,
 } from "../../actions/question";
+import { baseUrl } from "../../api";
 
 const QuestionsDetails = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const QuestionsDetails = () => {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const location = useLocation();
-  const url = "http://localhost:3000";
+ 
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
@@ -49,8 +50,9 @@ const QuestionsDetails = () => {
   };
 
   const handleShare = () => {
-    copy(url + location.pathname);
-    alert("Copied url : " + url + location.pathname);
+
+    copy(baseUrl + location.pathname);
+    alert("Copied url : " + baseUrl + location.pathname);
   };
 
   const handleDelete = () => {

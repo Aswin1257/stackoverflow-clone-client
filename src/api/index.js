@@ -1,7 +1,7 @@
 import axios from "axios";
-
+export const baseUrl="https://stackoverflow-backend-clone-nu92.onrender.com"
 const API = axios.create({
-  baseURL: "https://stackoverflow-backend-clone-nu92.onrender.com",
+  baseURL: baseUrl,
 });
 
 API.interceptors.request.use((req) => {
