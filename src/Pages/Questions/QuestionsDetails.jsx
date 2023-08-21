@@ -14,7 +14,7 @@ import {
   deleteQuestion,
   voteQuestion,
 } from "../../actions/question";
-import { baseUrl } from "../../api";
+
 
 const QuestionsDetails = () => {
   const { id } = useParams();
@@ -51,8 +51,8 @@ const QuestionsDetails = () => {
 
   const handleShare = () => {
 
-    copy(baseUrl + location.pathname);
-    alert("Copied url : " + baseUrl + location.pathname);
+    copy(window.location.href);
+    alert("Copied url : " + window.location.href);
   };
 
   const handleDelete = () => {
