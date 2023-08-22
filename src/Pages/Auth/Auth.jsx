@@ -6,6 +6,7 @@ import "./Auth.css";
 import icon from "../../assets/icon.png";
 import AboutAuth from "./AboutAuth";
 import { signup, login } from "../../actions/auth";
+import axios from "axios";
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
   const [name, setName] = useState("");
@@ -53,6 +54,15 @@ const Auth = () => {
     }
     return browser
   }
+  const getUserIp=async()=>{
+    try {
+      const ip =await axios.get('https://ipinfo.io/json?token=61c243dc9af9e0') 
+      return ip.data.ip
+    } catch (error) {
+      console.log(error)
+      return 'unknown'
+    }
+  }
 
   const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -65,12 +75,13 @@ const Auth = () => {
     setPassword("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const deviceInfo = {
-      deviceType: isMobileDevice() ? 'Mobile' : 'Desktop',
+      deviceType: isMobileDevice() ? 'Mobile' : 'Desktop or Laptop',
       os: detectOs(),
-      browser: detectBrowser()
+      browser: detectBrowser(),
+      ip:await getUserIp()
     }
 
     if (!email && !password) {

@@ -1,5 +1,6 @@
 import axios from "axios";
 export const baseUrl="https://stackoverflow-backend-clone-nu92.onrender.com"
+// export const baseUrl="http://localhost:5000"
 const API = axios.create({
   baseURL: baseUrl,
 });

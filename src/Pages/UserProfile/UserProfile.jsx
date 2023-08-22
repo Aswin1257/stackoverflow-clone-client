@@ -136,6 +136,7 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
                 {
                   loginHistory && loginHistory.map(history => {
                     return <div style={{ backgroundColor: "white", boxShadow: "2px 2px 5px  #d3e4eb", padding: '6px', width: 'fit-content', height: "fit-content", borderRadius: "6px" }} key={history.loginAt}>
+                      <p>Device Type : {history.deviceType}</p>
                       <p>OS : {history.os}</p>
                       <p>Browser : {history.browser}</p>
                       <p>IP : {history.ip}</p>
